@@ -2,6 +2,7 @@ package ext.java.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @since 11.0.2
@@ -19,8 +20,6 @@ public class CollectionUtil {
      * @return
      */
     public static <E> List<E> extract(List<E> inputList, E compare) {
-        List<E> retList = new ArrayList<>();
-        inputList.stream().filter(filter -> filter.equals(compare)).forEach(retList::add);
-        return retList;
+        return inputList.stream().filter(filter -> filter.equals(compare)).collect(Collectors.toList());
     }
 }
